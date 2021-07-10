@@ -5,6 +5,8 @@
         <h1 class="text-white text-center text-3xl pb-4">IP Address Tracker</h1>
 
         <search-form />
+
+        <i-p-info />
       </div>
     </div>
   </div>
@@ -12,11 +14,13 @@
 
 <script>
 import SearchForm from '@/components/SearchForm.vue';
+import IPInfo from '@/components/IPInfo.vue';
 
 export default {
   name: 'Home',
   components: {
     SearchForm,
+    IPInfo,
   },
 };
 </script>
