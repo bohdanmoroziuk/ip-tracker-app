@@ -6,7 +6,7 @@
 
         <search-form @search="getIpInfo" />
 
-        <i-p-info v-if="ipInfo" :data="ipInfo" />
+        <ip-info v-if="ipInfo" :data="ipInfo" />
       </div>
     </div>
 
@@ -23,7 +23,7 @@ import axios from 'axios';
 
 import TrackerMap from '@/components/TrackerMap.vue';
 import SearchForm from '@/components/SearchForm.vue';
-import IPInfo from '@/components/IPInfo.vue';
+import IpInfo from '@/components/IpInfo.vue';
 
 import config from '@/config';
 
@@ -63,7 +63,7 @@ export default {
   components: {
     TrackerMap,
     SearchForm,
-    IPInfo,
+    IpInfo,
   },
 };
 </script>

@@ -17,26 +17,18 @@
       z-20
     "
   >
-    <div class="flex flex-col">
-      <h3 class="text-sm mb-2 uppercase">IP Address</h3>
-      <span class="text-2xl">{{ data.address }}</span>
-    </div>
-    <div class="flex flex-col">
-      <h3 class="text-sm mb-2 uppercase">Location</h3>
-      <span class="text-2xl">{{ data.state }}</span>
-    </div>
-    <div class="flex flex-col">
-      <h3 class="text-sm mb-2 uppercase">Timezone</h3>
-      <span class="text-2xl">UTC {{ data.timezone }}</span>
-    </div>
-    <div class="flex flex-col">
-      <h3 class="text-sm mb-2 uppercase">Isp</h3>
-      <span class="text-2xl">{{ data.isp }}</span>
-    </div>
+    <ip-info-card
+      v-for="{ label, value } of dataset"
+      :key="label"
+      :label="label"
+      :value="value"
+    />
   </div>
 </template>
 
 <script>
+import IpInfoCard from '@/components/IpInfoCard.vue';
+
 export default {
   name: 'IPInfo',
   props: {
@@ -44,6 +36,38 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  computed: {
+    dataset() {
+      const {
+        address,
+        state,
+        timezone,
+        isp,
+      } = this.data;
+
+      return [
+        {
+          label: 'IP Address',
+          value: address,
+        },
+        {
+          label: 'Location',
+          value: state,
+        },
+        {
+          label: 'Timezone',
+          value: `UTC ${timezone}`,
+        },
+        {
+          label: 'Isp',
+          value: isp,
+        },
+      ];
+    },
+  },
+  components: {
+    IpInfoCard,
   },
 };
 </script>
