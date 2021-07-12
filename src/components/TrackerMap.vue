@@ -5,14 +5,31 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { onMounted, watch } from 'vue';
 import leaflet from 'leaflet';
 import config from '@/config';
 
 export default {
   name: 'TrackerMap',
-  setup() {
+  props: {
+    coords: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
     let map = null;
+
+    watch(() => props.coords, (coords) => {
+      if (coords.lat && coords.lng) {
+        leaflet
+          .marker([coords.lat, coords.lng])
+          .addTo(map);
+
+        map
+          .setView([coords.lat, coords.lng]);
+      }
+    }, { deep: true, immediate: true });
 
     onMounted(() => {
       map = leaflet
