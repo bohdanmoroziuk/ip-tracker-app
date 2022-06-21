@@ -1,7 +1,5 @@
 <template>
-  <div class="h-full z-10" id="map">
-
-  </div>
+  <div class="h-full z-10" id="map" />
 </template>
 
 <script>

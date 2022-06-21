@@ -30,7 +30,7 @@
 import IpInfoCard from '@/components/IpInfoCard.vue';
 
 export default {
-  name: 'IPInfo',
+  name: 'IpInfo',
   props: {
     data: {
       type: Object,

@@ -1,4 +1,6 @@
-# ip-tracker-app
+# IP Tracker App
+
+> An app for tracking IP addresses.
 
 ## Project setup
 ```
@@ -19,6 +21,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
